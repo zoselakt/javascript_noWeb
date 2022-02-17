@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>배열</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var member = ['egoing', 'zoselakt', 'youtube'];
+
+		document.write(member[0]);
+		document.write(member[1]);
+		document.write(member[2]);
+		document.write("<br/>");
+
+		//함수사용 배열
+		function get_members(){
+			return['egoing', 'zoselakt', 'youtube'];
+		}
+		var members = get_members();
+		document.write(members[0]);
+		document.write(members[1]);
+		document.write(members[2]);
+		document.write("<br/>");
+
+		//for문 사용 배열
+		var a = ['egoing', 'coding', 'zoselakt', 'javascript', 'JSP']
+		for(var i=0; i<a.length; i++){
+			document.write(a[i]);
+		}
+		document.write("<br/>");
+
+		//여러가지 방법
+		//	splice(1, 0, 'd'); / 1번째 인덱스(위치)에 0(갯수) d 문자를 추가
+		var li = ['a', 'b', 'c', 'd', 'e'];
+		li.push('f'); 
+		alert(li); // abcdef
+		li.unshift('z');
+		alert(li); // zabcdef
+		li.splice(1, 0, 'y'); // splice(1, 0, 'd'); / 1번째 인덱스(위치)에 0(갯수) d 문자를 추가
+		alert(li); // zyabcdef
+		li.pop();
+		alert(li); // zyabcde
+		li.sort();
+		alert(li); // abcdeyz
+		li.reverse();
+		alert(li); // zyedcba
+		li.shift();
+		alert(li); // yedcba
+
+	</script>
+</body>
+</html>
