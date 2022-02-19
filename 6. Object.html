@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>객체</title>
+</head>
+<body>
+	<ul>
+		<li>egoing</li>;
+		<li>zoselakt</li>;
+		<li>youtube</li>;
+	</ul>
+
+	<ul>
+	<script type="text/javascript">
+		var grades = {'egoing':10, 'zoselakt':9, 'youtube':8};
+
+		document.write(grades['egoing']);  // 결과 : 10
+		document.write(grades['zose' + 'lakt']); //결과 9
+		document.write(grades.youtube); // 결과 8
+
+		// 배열반복문
+		var arr = ['a', 'b', 'c'];
+		for(var i=0; i<arr.length; i++ ){
+			document.write(arr[i]);
+		}
+		// 객체반복문
+		for(key in grades) {
+			document.write("<br/>");
+			document.write("<li>" + "key: " +key+ "value: " +grades[key]+ "</li>");
+		}
+		// 함수도 변수에 저장될수 있다.
+		var grape = {
+			'list' : {'egoing':100, 'zoselakt': 90, 'youtube':80},
+			'show' : function(){
+				for(var name in this.list){
+					console.log(name, this.list[name]); // this : grape를 가리키는 변수
+				}
+			}
+		}
+//		grape['show']();
+		grape.show();
+
+	</script>
+	</ul>
+</body>
+</html>
