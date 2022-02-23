@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>정규표현식</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//exec(): 문자열내 문자가 있으면 배열로 출력
+		var pattern = /a/; //패턴
+		console.log(pattern.exec('abcde')); // 출력: ['a'] / 배열 문자열 a
+
+		var pattern = /a/;
+		console.log(pattern.exec('bcdef')); // 출력: null / () 안에 a가 없음 
+
+		//test(): 
+		var pattern = /a/;
+		console.log(pattern.test('abcde')); // 출력: true / a가 없으면 false
+
+		//String.match()
+		var pattern = /a/;
+		var str = 'abcdef';
+		console.log(str.match(pattern)); // 출력: ["a"] / 
+
+		//String.replace()
+		console.log(str.replace(pattern, 'A')); //출력: Abcdef
+
+		//option:  / i: 대소문자 구분x / g: 문자열에 포함된 a반복 
+		//		ig: 모든문자찾아서 반환
+		var xi = /a/;
+		document.write("Abcde".match(xi)); // 출력: null
+		var oi = /a/i;
+		document.write("Abcde".match(oi)); // A
+
+		document.write("<br/>");
+
+		var xg = /a/;
+		document.write("abcdea".match(xg)); //["a"]
+		var og = /a/g;
+		document.write("abcdea".match(og)); // ["a", "a"]
+
+		document.write("<br/>");
+
+		var ig = /a/ig;
+		document.write("AabcdAa".match(ig));
+
+		//캡처:
+		var pattern = /(\w+)\s(\w+)/; // 그룹생성 / /s 양옆으로 2개의 배열생성
+		var str ="coding everybody";
+		var result = str.replace(pattern, "$2, $1"); // $1: 패턴의 첫번째 파라미터 $2: 패턴 두번째 파라미터로 치환!
+		console.log(result);
+
+		//치환:
+		
+
+	</script>
+</body>
+</html>

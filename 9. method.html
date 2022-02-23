@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>메소드 / 생성자 함수</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//생성자 함수
+		function Item(title, price){
+			this.title = title;
+			this.price = price;
+			this.showPrice = function(){
+				document.write('가격은 ${price}원 입니다.');
+			}
+		}
+
+		const Item1 = new Item("인형", 3000);
+		const Item2 = new Item("가방", 10000);
+		const Item3 = new Item("지갑", 20000);
+		const Item4 = new Item("장난감", 5000);
+		const Item5 = new Item("간식", 6000);
+
+		console.log(Item1, Item2, Item3, Item4, Item5);
+
+		Item3.showPrice();
+
+		// computed property
+		let a = 'age';
+		const user = {
+			name : 'Mike',
+			[a] : 30 // age : 30 대신 사용가능
+		}
+		console.log(user);
+
+		const user1 = {
+			[1+4] : 5,
+			["안녕" + "하세요"] : "Hello"
+		}
+		console.log(user1);
+
+		// Object.assign() : 객체복제 / 여러개의 객체를 병합할수있다
+		const user2 = {
+			name: "Mike",
+			age: 30
+		};
+		const Person = Object.assign({}, user2);
+		console.log(Person);
+
+		// Object.keys() : 키 배열 반환
+		const user3 = {
+			name: "Mike",
+			age: 30
+		};
+		const result = Object.keys(user3);
+		console.log(result);
+
+		// Object.entries() : 키/값 배열반환
+		const result1 = Object.entries(user3);
+		console.log(result1);
+
+		//Object.fromEntries: 키/값 배열을 객체로 반환
+		let arr = [
+		['mon', '월'], ['tue', '화']
+		];
+
+		const result2 = Object.fromEntries(arr);
+		console.log(result2);
+	</script>
+</body>
+</html>
