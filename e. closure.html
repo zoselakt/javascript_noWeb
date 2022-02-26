@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>클로저</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//클로저(closure) : 함수가 종료된 시점 이후에도 
+
+		//내부함수
+		function outter(){
+			var title = 'coding everybody'; //클로저함수 / 일반적으로 외부함수는 쓸수없다.
+			return function inner(){ // 내부함수 - 내부함수에 title변수가 없으면 외부함수에서 찾는다. / 외부함수가 종료된 이후에도 클로저를 통해 return받아 값을 출력한다.
+				alert(title); 
+			}
+			inner(); // 함수 실행되면 접근할 수 없다.
+		}
+		var inner = outter(); // 밖에서 사용하게끔 변수에 담는다.
+		inner();
+		console.log(inner);
+
+		// 객체내부함수 : 대규모의 프로젝트시 데이터가 난무하면 오류날가능성이 상당하기때문에 사용 / private variable
+		function factory_movie(title){ //title에 접근가능한 get_title/set_title
+			return{
+				get_title : function(){ 
+					return title;
+				},
+				set_title : function(_title){
+					title = _title
+				}
+			}
+		}
+		ghost = factory_movie('Ghost');
+		matrix = factory_movie('matrix');
+		alert(ghost.get_title());
+		alert(matrix.get_title());
+		ghost.set_title('공각기동대') // 고스트 객체값만 변경! / 
+
+		alert(ghost.get_title());
+		alert(matrix.get_title());
+
+		// 주로있는 오류 (주석을 풀어야 값이나옴)
+		// 내부함수의 지역변수를 바로 return하면 출력이 안되기 때문에 function에 값 저장후 리턴
+		var arr = []
+		for(var i=0; i<5; i++){ //밖으로 return
+			arr[i] = function(/*id*/){ //외부함수의 지역변수
+			//	return function(){
+					return id; //내부함수의 지역변수
+				}
+		//	}(i);
+		}
+		for(var index in arr){ // 0~4까지 출력
+			console.log(arr[index]());
+		}
+
+	</script>
+</body>
+</html>

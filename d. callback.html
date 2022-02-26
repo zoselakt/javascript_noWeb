@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>값으로서의함수 - callback</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 값으로 사용될 수 있는 특성을 이용하면 함수의 인자로 함수로 전달할 수 있다.
+
+		var numbers = [20, 10, 9,8,7,6,5,4,3,2,1];
+		console.log(numbers.sort()); //배열객체.메소드;
+
+		var sortfunc = function(a, b){ //콜백함수
+		/*	if(a>b){
+				return 1;
+			}else if(a<b){
+				return -1;
+			}else {
+				return 0;
+			}
+		*/
+			return a - b;
+		}
+		console.log(numbers.sort(sortfunc)); // 콜백함수수신
+
+
+	</script>
+</body>
+</html>
