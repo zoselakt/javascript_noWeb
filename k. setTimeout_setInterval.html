@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>setTimeout / set Interval</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let num = 0;
+
+		function showTime(){
+			console.log("안녕하세요. 접속한지 ${num++} 초가 지났습니다.");
+			if(num > 5){
+				clearInterval(tID)
+			}
+		}
+		const tid = setInterval(showTime, 1000);
+	</script>
+</body>
+</html>

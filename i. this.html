@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>this</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//this: this는 상황에 따라서 의미가 달라진다. 어떻게 호출하느냐에 따라서 this가 가리키는 대상이 달라진다.
+
+		// 함수호출 : 객체의 소속인 메소드의 this는 그 객체를 가리킨다.
+		function func(){
+			if (window === this) {
+				document.write("window=== this");
+			}
+		}
+
+		// 생성자의 호출: 
+		var funcThis = null;
+
+		function Func(){
+			funcThis = this;
+		}
+		var o1 = Func();
+		if(funcThis === window){
+			document.write('window </br>');
+		}
+
+		var o2 = new Func();
+		if (funcThis === o2) {
+			document.write('o2 </br>');
+		}
+
+		//객체로서의 함수 (apply, call, bind)
+		// call: this를 특정값으로 지정할 수 있다.
+		// apply: 함수 매개변수를 처리하는 방법을 제외하면 call과 완전히 같다.
+		// call은 일반적인 함수와 마찬가지로 매개변수를 받고,
+		// apply는 매개변수를 배열로 받는다.
+		// bind: 함수의 this 값을 영구히 바꿀수 있다.
+
+		/*
+		리터럴: 소스코드의 고정된 값
+		함수리터럴: function(인수값){} / 익명함수와는 다르다(function 함수명(인수값{ }))
+		객체리터럴: 변수 변수명 = {인수값}; / {} 부분이 객체리터럴
+		배열리터럴: 변수 변수명 = [인수값]; / [] 부분이 변수 리터럴
+		*/
+		var o = {}
+		var p = {}
+		function funct(){
+			switch(this){
+				case o:
+					document.write('o<br/>');
+					break;
+				case p:
+					document.write('p<br/>');
+					break;
+				case window:
+					document.write('window<br/>');
+					break;
+			}
+		}
+		function update(birthYear, occupation){
+			this.birthYear = birthYear;
+			this.occupation = occupation;
+		}
+
+		funct.apply(o);
+		funct.apply(p);
+		update.apply(o, [2000, "singer"]);
+		console.log(o);
+
+		funct.call(o);
+		funct.call(p);
+
+		const user ={
+			name: "Mike",
+			showName: function(){
+				console.log('hello bind');
+			},
+		};
+		user.showName();
+		let fn = user.showName;
+		let boundFn = fn.bind(user);
+		boundFn();
+	</script>
+</body>
+</html>

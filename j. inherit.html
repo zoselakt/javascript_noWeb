@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>상속</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//상속: 객체는 연관된 로직들로 이루어진 작은 프로그램이라 할 수있다. 상속은 객체의 로직을그대로 물려받는 또다른 객체를 만들수 있는 기능을 의미한다. 
+		// 단순히 물려받는 것이라면 의미가 없을 것이다. 기존의 로직을 수정하고 변경해서 파새된 새로운 객체를 만들수 있게 해준다.
+
+		function Person(name){ //객체1
+			this.name = name;
+		}
+		Person.prototype.name=null; // 프로퍼티
+		Person.prototype.introduce = function(){ //메소드
+			return 'My name is ' + this.name;
+		}
+
+		function Programmer(name){ // 객체 2
+			this.name = name;
+		}
+		Programmer.prototype = new Person(); // 객체화  / 생성자에 할당하여 사용
+
+		var p1 = new Programmer('egoing'); //상속 프로퍼티
+		document.write(p1.introduce() + "<br/>"); //상속 메소드
+
+		Programmer.prototype.coding = function(){ // 메소드 추가
+			return "Hello world";
+		}
+
+		function Designer(name){ // 객체 3
+
+		}
+		//프로토타입(prototype): 원형 / 객체는 프로퍼티를 가질수 있는데 프로토타입 프로퍼티는 특수한 용도가 약속되어 있는 특수한 프로퍼티이다.
+		function Ultra(){}
+		Ultra.prototype.UltraProp = true;  //
+
+		function Super(){}
+		Super.prototype = new Ultra(); // 울트라상속
+
+		function Sub(){}
+		Sub.prototype = Super(); //수퍼상속
+
+		var o = new Sub();
+		console.log(o.UltraProp);
+		// 객체o에서 ultraProp를 찾는다 없다면 sub에서 찾는다.
+		// 없으면 super에서 찾는다. 없다면 ultra에서 찾는다.
+
+		// 아무값이 없다면 콘솔로그는 ultra1의 true값을 출력한다.
+		function Ultra1(){}
+		Ultra1.prototype.UltraProp = true;  
+
+		function Super1(){}
+		var t = new Ultra();
+		Super1.prototype = t;
+
+		function Sub1(){}
+		var s = new Super1();
+		Sub1.prototype = s;
+
+		var o1 = new Sub1();
+		console.log(o1.UltraProp);
+	</script>
+</body>
+</html>
