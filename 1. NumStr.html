@@ -7,10 +7,11 @@
 </head>
 <body>
 	<script type="text/javascript">
-		var a = 1;
+		//출력방법
 		alert(a); // 경고창
 		console.log(a); // 콘솔창
 		prompt("당신의 나이는 :") //알림창 / 문자형출력
+		document.write(a); // html화면에 출력
 
 
 		// 수학표현
@@ -21,14 +22,30 @@
 		Math.sqrt(9); //제곱근
 		Math.random(); //랜덤한 실수값 (1보다 작음)
 		Math.round(100*Math.random()); // 정수값
+		Math.PI(); //파이값
+		Math.max(1,2,3,4,5); // 최대값
+		Math.min(1,2,3,4,5); // 최소값
+
 
 		//자료형
 		console.log('coding everybody');
 		console.log("coding everybody");
 		console.log('egoing\'s coding everybody'); //egoing's coding everybody 콤마표현
+		console.log('2 더하기 3은 ${2+3}입니다.');
+
+		function hasCola(str){ // 금칙어
+			if(str.indexOf("콜라") > -1){
+				console.log("금칙어가 있습니다.");
+			}else{
+				console.log("통과");
+			}
+		}
+		hasCola("콜라 가격 :2000원"); //금칙어 존재
+		hasCola("사이다 가격 : 1500원"); // 금칙어 없음
 
 		// 변수 - var선언후 다시 선언하지 않아도 된다.
-		var first = "coding";
+		// var: 함수스코프 - 함수밖에서사용o / let, const: 블록스코프 - 함수밖에서사용x
+		var first = "coding"; // 오류가능성 높음
 		first = '코딩';
 		let second = "java";  // 변수 - 변하는값
 		const PI =3.14; // 상수- 변하지 않는 값
