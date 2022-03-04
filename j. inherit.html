@@ -62,6 +62,49 @@
 
 		var o1 = new Sub1();
 		console.log(o1.UltraProp);
+
+
+console.log("===========");
+		const car = {
+			wheels: 4,
+			drive(){
+				console.log("drive...");
+			},
+		};
+
+		const bmw = {
+			color: "red",
+			navigation: 1,
+		};
+		bmw.__proto__ = car;
+
+		const x5 = {
+			color: "white"
+		}
+		x5.__proto__ = car;
+
+		console.log(bmw);
+		console.log(x5);
+document.write("===========");
+
+		const benz = function(color) {
+			this.color = color;
+		};
+
+		bmw.prototype = {
+			constructor: bmw,
+			wheels: 4,
+			drive(){
+				console.log("drive...");
+			},
+			navigation: 1,
+
+			stop(){
+				console.log("stop");
+			},
+		};
+		document.write(bmw.drive);
+
 	</script>
 </body>
 </html>

@@ -52,7 +52,26 @@
 		console.log(result);
 
 		//치환:
+
 		
+		
+		// 여러가지 방법
+		//	splice(1, 0, 'd'); / 1번째 인덱스(위치)에 0(갯수) d 문자를 추가
+		var li = ['a', 'b', 'c', 'd', 'e'];
+		li.push('f');  
+		alert(li); // abcdef / 맨뒤에추가
+		li.unshift('z');
+		alert(li); // zabcdef / 맨앞에추가
+		li.splice(1, 0, 'y'); // splice(1, 0, 'd'); / 1번째 인덱스(위치)에 0(갯수) d 문자를 추가
+		alert(li); // zyabcdef / 사이에추가
+		li.pop();
+		alert(li); // zyabcde / 맨뒤삭제
+		li.sort();
+		alert(li); // abcdeyz / 정렬
+		li.reverse();
+		alert(li); // zyedcba / 역순정렬
+		li.shift();
+		alert(li); // yedcba / 맨앞삭제
 
 	</script>
 </body>

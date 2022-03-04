@@ -7,7 +7,7 @@
 </head>
 <body>
 	<script type="text/javascript">
-		var member = ['egoing', 'zoselakt', 'youtube'];
+		var member = ['egoing ', 'zoselakt ', 'youtube'];
 
 		document.write(member[0]);
 		document.write(member[1]);
@@ -16,7 +16,7 @@
 
 		//함수사용 배열
 		function get_members(){
-			return['egoing', 'zoselakt', 'youtube'];
+			return['egoing ', 'zoselakt ', 'youtube'];
 		}
 		var members = get_members();
 		document.write(members[0]);
@@ -25,36 +25,33 @@
 		document.write("<br/>");
 
 		//for문 사용 배열
-		var a = ['egoing', 'coding', 'zoselakt', 'javascript', 'JSP']
+		var a = ['egoing ', 'coding ', 'zoselakt ', 'javascript ', 'JSP']
 		for(var i=0; i<a.length; i++){
 			document.write(a[i]);
 		}
 		document.write("<br/>");
 
-		// 여러가지 방법
-		//	splice(1, 0, 'd'); / 1번째 인덱스(위치)에 0(갯수) d 문자를 추가
-		var li = ['a', 'b', 'c', 'd', 'e'];
-		li.push('f');  
-		alert(li); // abcdef / 맨뒤에추가
-		li.unshift('z');
-		alert(li); // zabcdef / 맨앞에추가
-		li.splice(1, 0, 'y'); // splice(1, 0, 'd'); / 1번째 인덱스(위치)에 0(갯수) d 문자를 추가
-		alert(li); // zyabcdef / 사이에추가
-		li.pop();
-		alert(li); // zyabcde / 맨뒤삭제
-		li.sort();
-		alert(li); // abcdeyz / 정렬
-		li.reverse();
-		alert(li); // zyedcba / 역순정렬
-		li.shift();
-		alert(li); // yedcba / 맨앞삭제
-
-
 		// forEach
-		let users = ['Mike', 'Tom', 'jane'];
+		let users = ['Mike ', 'Tom ', 'jane'];
 		users.forEach((name, index) => {
-			console.log('${index+1}, %{name}');
+			document.write('${index+1}, %{name}');
 		});
+
+		//배열의 확장
+		var arr = new Array('seoul', 'new york', 'tokyo', 'deagu', 'osaka');
+		function getRandomValueFromArray(arr){
+			var index = Math.floor(arr.length*Math.random());
+			return arr[index];
+		}
+		console.log(getRandomValueFromArray(arr));
+
+		//배열의 확장2
+		Array.prototype.random = function(){
+			var index = Math.floor(this.length*Math.random());
+			return this[index];
+		}
+		var arr1 = new Array('pusan', 'paris', 'washington DC', 'newdeli', 'otawa');
+		console.log(arr1.random());
 	</script>
 </body>
 </html>
