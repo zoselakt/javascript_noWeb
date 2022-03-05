@@ -105,6 +105,26 @@ document.write("===========");
 		};
 		document.write(bmw.drive);
 
+document.write("===========");
+
+		class car1{
+			constructor(color){
+				this.color = color;
+				this.wheels = 4;
+			}
+		}
+		
+		class bmw1 extends car1{
+			constructor(color) {
+				Super(color);
+				this.navigation =1;
+			}
+			park(){
+				console.log("park");
+			}
+		}
+		console.log(bmw1);
+
 	</script>
 </body>
 </html>

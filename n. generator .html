@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>제너레이터</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// generator: generator function 으로부터 반환된 값 iterable, iterator프로토콜을 따르는 객체
+		// iterable: symbol.iterator메서드가 있다. = iterator를 반환해야한다.
+		// iterator: next 메서드를 가진다. = value와 done 속성을 가진 객체를 반환한다. 작업이 끝나면 done은 true가 된다.
+
+		function* fn(){
+			console.log(1);
+			yield 1;
+			console.log(2);
+			yield 2;
+			console.log(3);
+			console.log(4);
+			yield 3;
+			return "finish";
+		}
+
+		const a = fn();
+		document.write(a);
+
+		// 여러가지
+		function* fn1(){
+			let index = 0;
+			while(true){
+				yield index++;
+			}
+		}
+		const aa = fn1();
+		console.log(fn1);
+		//
+		function* gen1(){
+			yield "o";
+			yield "n";
+			yield "e";
+		}
+
+		function* gen2(){
+			yield "two";
+			yield* gen1();
+			yield "!";
+		}
+		console.log(gen1);
+		console.log(gen2);
+	</script>
+</body>
+</html>
