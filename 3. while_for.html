@@ -60,6 +60,15 @@
 				document.write(i+ "x" +j+ "=" + i*j + " / ");
 			}
 		}
+		let travel = ["제주도", "강원도", "거제도", "서울", "가평", "포항"];
+		let count = 0;
+		let once = 1;
+
+		travel.forEach(element => {
+    			for (var i=count; i<travel.length; i++){
+             			console.log(travel[i]);
+         		}
+		});
 		
 		document.write("<br/> <br/>");
 		document.write("===============================<br/>");
