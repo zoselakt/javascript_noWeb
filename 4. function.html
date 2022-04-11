@@ -17,7 +17,15 @@
 		호출
 		함수명();
 		*/
-
+		//일반 함수
+		function(){
+			console.log("일반표기함수")
+		};
+		let numFunc = function(){
+    			console.log("일반표기함수")
+		};
+		
+		//선언적 함수
 		function numbering(){
 			i = 0;
 			while(i<10){
@@ -26,36 +34,42 @@
 			}
 		}
 		numbering(); // == document.write(1)
-
-		//return
+		
+		function numFunc(){
+			console.log("선언적함수")
+		};
+//------------------------------------------------------------------		
+		//return 사용예시
+		// 단일 값
 		function get_member1(){
 			return 'egoing;'
 		}
 		document.write(get_member1());
 
-		// 
+		// 다중 값
 		function get_arguments(arg1, arg2) {
 			return arg1 + arg2;
 		}
 		alert(get_arguments(10, 20));
 		alert(get_arguments(20, 30));
-
-		// 다양한 함수정의방법
-		numbering = function() {
-			i=0;
-			while(i<10){
-				document.write(i);
-				i+=1;
-			}
+//------------------------------------------------------------------		
+		//arrow function(화살표함수) / ES6버전 이상 사용가능
+		let arrowFunc = 매개변수 or 괄호 사용(생략가능) =>{
+    			console.log("화살표표기함수")
 		}
-
-		(function (){  // 익명함수
+		
+		// 즉시실행함수
+		(function (){  // 익명즉시실행함수
 			i=0;
 			while(i<10){
 				document.write(i);
 				i+=1;
 			}
 		})();
+		
+		(function(){
+    			console.log("바로실행!")
+		} ())
 
 	</script>
 </body>
