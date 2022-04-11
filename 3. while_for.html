@@ -28,19 +28,40 @@ document.write("<br/>=======================================================<br/
 		}
 
 document.write("<br/>========================================================<br/>");
-
+		
 		// 객체반복문 / for in 문
 		var grades = {'egoing':10, 'zoselakt':9, 'youtube':8};
 		for(key in grades) {
 			document.write("<br/>");
 			document.write("<li>" + "key: " +key+ "value: " +grades[key]+ "</li>");
 		}
-document.write("=============================================================<br/>");
+		
+		let array = ['사과', '배', '수박', '포도', '키위', '레몬'];
+		let obj = {car:'승용차', phone:'iphone', house:'아파트'};
+		// for in
+		for(let items in array){
+    			console.log("for in구문으로 index출력하기: "+items);
+    			console.log("for in구문으로 value출력하기: "+array[items]);
+			}
 
-		// 객체반복문 / for of 문
+		// 객체타입 출력
+		for (let items in obj){
+    			console.log("for in구문으로 index출력하기: "+items);
+    			console.log("for in구문으로 value출력하기: "+obj[items]);
+document.write("=============================================================<br/>");
+		// 일반 객체타입은 iterable하지 않기 때문에 for of를 사용할 수 없다.
+		for(let items of array){
+    			console.log("for of구문으로 출력하기: "+items);
+		}
+		
+		// 객체타입 반복문 / for of 문
 		let days = ["mon", "tue", "wed"];
 		for(let day of days) {
 			document.write(day + "\t");
+		}
+		// 객체타입 출력 Object.entries 사용
+		for(let [key, val] of Object.entries(obj)){
+			console.log("for of 구문으로 출력하기: key:"+ key + " val: "+ val)
 		}
 document.write("<br/>=============================================================<br/>");
 
