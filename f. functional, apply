@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> arguments / apply</title>
+</head>
+<body>
+	<script type="text/javascript">
+------------------------------------------------------------------------------------------------------		
+class Shape{
+    static circleRate = 3.14;
+    constructor(width, height, color){
+        this.width = width;
+        this.height = height;
+        this.color = color;
+    }
+    inputDraw(a, b){
+        console.log(`${a}:${b}`);
+    }
+    draw(){
+        console.log("도형그리기");
+    }
+    getArea(){
+        console.log(`${this.width}`)
+    }
+}
+
+let triClass = new Shape(10,20,'blur');
+
+class Rectangle extends Shape{}
+class Triangle extends Shape{
+    draw(){
+        console.log("삼각형 그리기")
+        super.draw(); // 오버라이딩 시 해당함수내에서 부모함수 불러오기
+    }
+    getArea(){
+        console.log(`삼각형의 넓이:`+(this.width * this.height) /2);
+    }
+}
+// triClass.getArea();
+// console.log(shapebox.width);
+// console.log(shapebox.height);
+// console.log(shapebox.color);
+// shapebox.inputDraw(25, 10);
+// shapebox.draw();
+// shapebox.getArea();
+		
+//-------------------------------------------------------------------------------------------------------		
+		// arguments 
+		// 함수안에서 인자와 관련된 Array형태의 객체 / 배열과 유사(배열은 아니다.)
+		// 인덱스 속성은 가지지만 forEach, map등 내장 메서드는 가지지 않는다.
+
+		function sum(){
+			var i, _sum = 0;
+			for (var i = 0; i < arguments.length; i++) {
+				document.write(i+' : ' + arguments[i]+ '<br/>');
+				_sum += arguments[i];
+			}
+			return _sum;
+		}
+		document.write('result:' + sum(1,2,3,4));
+
+		//함수.length는 함수로 전달된 실제인자의 수
+		//arguments.length는 함수에정의된 인자의 수
+
+		// apply: 주어진 this 값과 배열로 제공되는 arguments로 함수를 호출한다.
+		// 		  call() 구문과 유사 / call은 인수리스트를 받는데 apply는 인수들의 단일배열을 받는다.
+
+		o1 = {val1 : 1, val2: 2,val3: 3}
+		o2 = {v1: 10, v2: 50, v3: 100, v4:25}
+
+		function sum1(){
+			var _sum =0;
+			for (var name in this) { //this
+				_sum += this[name];
+			}
+			return _sum;
+		}
+
+		console.log(sum1.apply(o1)); //6
+		console.log(sum1.apply(o2)); //185
+
+		//sum1을 apply하면 this를 명시해 주었기 때문에 o1객체의 sum1 인자가 된다. 
+
+	</script>
+</body>
+</html>
