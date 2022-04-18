@@ -21,7 +21,43 @@
 		var inner = outter(); // 밖에서 사용하게끔 변수에 담는다.
 		inner();
 		console.log(inner);
+		
+//------------------------------------------------------------------------------------------------
+		// function outFunc(a){
+		//     let outerText = a;
+		//     console.log(outerText);
+		//     function innerFunc(){
+		//         let innerText = 'inner-text';
+		//         console.log(`${outerText}`, `${innerText}`);
+		//     }
+		//     innerFunc();
+		// }
+		// outFunc('외부함수');
+//------------------------------------------------------------------------------------------------
 
+		// function outFunc(a){
+		//     let outerText = "outer-text";
+		//     function innerFunc(num){
+		//         let innerText = num;
+		//         console.log(`${outerText}`, `${innerText}`);
+		//     }
+		//     innerFunc(a);
+		// }
+		// outFunc('내부함수');
+//-------------------------------------------------------------------------------------------------
+		// closure 적용
+		function outFunc(){ // 파라미터없는 함수 / 여기서 실행해도 매개변수가 없기때문에 아무런 실행이 되지 않는다.
+    		let outerText = "outer-text";
+    		function innerFunc(a){ // a의 파라미터 던지기 함수
+        		let innerText = `innerText`;
+        		console.log(`${outerText}, a`);
+    		}
+    		return innerFunc; // a 파라미터 던지기 / 종료된 함수를 외부로 던져서 외부에서 받을수 있다.
+		}
+		let closureFunc = new outFunc(); // outFunc을 객체화 하여 함수 밖에서 함수 값을 사용하게끔 변수에 담는다.
+		
+//--------------------------------------------------------------------------------------------------------------------------		
+		
 		// 객체내부함수 : 대규모의 프로젝트시 데이터가 난무하면 오류날가능성이 상당하기때문에 사용 / private variable
 		function factory_movie(title){ //title에 접근가능한 get_title/set_title
 			return{
