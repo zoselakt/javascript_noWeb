@@ -47,6 +47,21 @@
 
 	avgCalc(50, 100, avg);
 	/* let num = 50+100 / avg(sum)*/
+//------------------------------------------------------------------------------------------------------	
+	function multiple(a,b,c){
+  	  let mul = a*b;
+  	 return c(mul); // 리턴 - 정상리턴출력
+	}
+
+	function square(result){
+  	  console.log(result);
+  	  return result; // 리턴 - 부모에게
+	}
+
+	multiple(10, 20, square); // 함수 호출 출력
+	console.log(multiple(10, 20, square)); // 콘솔로 리턴값 출력
+	
+	
 </script>
 </body>
 </html>
