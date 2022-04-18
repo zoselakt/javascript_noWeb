@@ -50,11 +50,12 @@
     		let outerText = "outer-text";
     		function innerFunc(a){ // a의 파라미터 던지기 함수
         		let innerText = `innerText`;
-        		console.log(`${outerText}, a`);
+        		console.log(`${outerText}, ${a}`);
     		}
     		return innerFunc; // a 파라미터 던지기 / 종료된 함수를 외부로 던져서 외부에서 받을수 있다.
 		}
 		let closureFunc = new outFunc(); // outFunc을 객체화 하여 함수 밖에서 함수 값을 사용하게끔 변수에 담는다.
+		closureFunc('클로저 함수 호출'); // return으로 받은값
 		
 //--------------------------------------------------------------------------------------------------------------------------		
 		
