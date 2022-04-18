@@ -23,27 +23,28 @@
 		console.log(inner);
 		
 //------------------------------------------------------------------------------------------------
-		// function outFunc(a){
-		//     let outerText = a;
-		//     console.log(outerText);
-		//     function innerFunc(){
-		//         let innerText = 'inner-text';
-		//         console.log(`${outerText}`, `${innerText}`);
-		//     }
-		//     innerFunc();
-		// }
-		// outFunc('외부함수');
+// 매개변수가 있는 일반적인 함수 작성
+// function outFunc(a){ 
+//     let outerText = a;
+//     console.log(outerText);
+//     function innerFunc(){ //내부함수작성 / 파라미터 x
+//         let innerText = 'inner-text';
+//         console.log(`${outerText}`, `${innerText}`); //내부함수에서 부모와 자신을 호출
+//     }
+//     innerFunc(); // 내부함수 부모영역호출
+// }
+// outFunc('외부함수');
 //------------------------------------------------------------------------------------------------
 
-		// function outFunc(a){
-		//     let outerText = "outer-text";
-		//     function innerFunc(num){
-		//         let innerText = num;
-		//         console.log(`${outerText}`, `${innerText}`);
-		//     }
-		//     innerFunc(a);
-		// }
-		// outFunc('내부함수');
+// function outFunc(a){
+//     let outerText = "outer-text";
+//     function innerFunc(num){
+//         let innerText = num;
+//         console.log(`${outerText}`, `${innerText}`);
+//     }
+//     innerFunc(a);
+// }
+// outFunc('내부함수'); // 내부함수 외부호출
 //-------------------------------------------------------------------------------------------------
 		// closure 적용
 		function outFunc(){ // 파라미터없는 함수 / 여기서 실행해도 매개변수가 없기때문에 아무런 실행이 되지 않는다.
